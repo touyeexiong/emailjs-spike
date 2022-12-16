@@ -11,14 +11,16 @@ function App() {
     e.preventDefault();
 
     emailjs.sendForm(
-      "YOUR_SERVICE_ID",
-      "YOUR_TEMPLATE_ID",
+      process.env.REACT_APP_SERVICE_ID,
+      process.env.REACT_APP_TEMPLATE_ID,
       form.current,
-      "YOUR_USER_ID"
+      process.env.REACT_APP_USER_ID
     ).then(
       result => console.log(result.text),
       error => console.log(error.text)  
     );
+
+    e.target.reset();
   };
 
   return (
